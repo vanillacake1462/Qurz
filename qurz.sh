@@ -28,7 +28,7 @@ if [[ "$b" -eq "$VAR2" ]] ; then
     sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
 
-if [[ "$b" -eqe "$VAR3" ]] ; then
+if [[ "$b" -eq "$VAR3" ]] ; then
     ehco Ok
 fi
 
