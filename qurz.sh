@@ -11,11 +11,25 @@ VAR1=Arch
 if [[ "$a" -eq "$VAR0" ]] ; then
     sudo apt-get update -y
     sudo apt-get install neofetch bottom htop nano zsh curl -y
-elif [[ "$a" -eq "$VAR1" ]] ; then
+fi
+
+if [[ "$a" -eq "$VAR1" ]] ; then
     sudo pacman -Syy -y
     sudo pacman -Sy neofetch bottom zsh htop nano curl -y
 fi
 clear
-echo Now Installing Oh My Zsh
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+ehco "Do YOu Want to install Oh My Zsh ? Y/N"
+read b
+VAR2=Y
+VAR3=N
+
+if [[ "$b" -eq "$VAR2" ]] ; then
+    sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
+
+if [[ "$b" -eqe "$VAR3" ]] ; then
+    ehco Ok
+fi
+
 echo Thanks for using Qurz !
