@@ -29,7 +29,7 @@ if [[ "$b" -eq "$VAR2" ]] ; then
 fi
 
 if [[ "$b" -eq "$VAR3" ]] ; then
-    ehco Ok
+    echo Ok
 fi
 
 echo Thanks for using Qurz !
