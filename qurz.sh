@@ -19,7 +19,7 @@ if [[ "$a" -eq "$VAR1" ]] ; then
 fi
 clear
 
-ehco "Do YOu Want to install Oh My Zsh ? Y/N"
+echo "Do YOu Want to install Oh My Zsh ? Y/N"
 read b
 VAR2=Y
 VAR3=N
