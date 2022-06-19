@@ -1,0 +1,83 @@
+#!/bin/sh
+
+#greeting
+echo "Hello!"
+echo "welcome to Qurz $(hostname)"
+echo "Qurz is a Package Manager Assistant"
+
+#Vars
+Debian=1
+Arch=2
+Mac=3
+Fedora=4
+Yes=1
+No=2
+Zsh=1
+Bash=2
+#installation 
+echo "What is Your Distro Based on?"
+echo "          [1]Debian [2]Arch"
+echo "          [3]macOS  [4]RedHat"
+read DISTRO 
+
+if [[ $DISTRO -eq $Debian ]] ; then
+        sudo apt update
+        sudo apt install zsh neofetch figlet vim alacritty htop bash
+elif [[ $DISTRO -eq $Arch ]] ; then
+        sudo pacman -Syy
+        sudo pacman -S zsh neofetch figlet vim alacritty htop bash
+elif [[ $DISTRO -eq $Mac ]] ; then
+        ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+        brew install neofetch figlet vim htop
+        brew install --cask iterm 
+elif [[ $DISTRO -eq $Fedora ]] ; then 
+        sudo dnf update
+        sudo dnf install zsh neofetch figlet vim alacritty htop bash
+else echo "Error"
+fi
+
+#colors 
+bold='^[[1m'
+black='^[[30m'
+red='^[[31m'
+green='^[[32m'
+yellow='^[[33m'
+blue='^[[34m'
+magenta='^[[35m'
+cyan='^[[36m'
+white='^[[37m'
+grey='^[[90m'
+reset='^[[0m'
+
+#oh my zsh
+echo "Do You Want To Install Oh My Zsh ?"
+echo "          [1]Yes  [2]No"
+read VAR1
+if [[ $VAR1 -eq $Yes ]] ; then
+        sh -c "$(curl https://raw.githubusercontent.com/anhsirk0/fetch-master-6000/master/install.sh)"
+elif [[ $VAR1 -eq $No ]] ; then 
+        ignore=ignore
+fi
+
+#shell specifying
+echo "Your Shell is $SHELL now"
+echo "Do Yo Wnat To Change it?"
+echo "          [1]Yes [2]No"
+read VAR2
+if [[ $VAR2 -eq $Yes ]] ; then
+        echo "What Shell Do You Want To Change to?"
+        echo "          [1]Zsh [2]Bash"
+        read VAR3
+        if [[ $VAR3 -eq $Zsh ]] ; then
+                chsh -s /bin/zsh
+        elif [[ $VAR3 -eq $Bash ]] ; then
+                chsh -s /bin/bash
+        fi
+elif [[ $VAR2 -eq $No ]] ; then
+        ignore1=ignore
+else echo "Error"
+fi
+
+#final greeting
+echo "thanks for using Qurz"
+figlet Goodbye!
