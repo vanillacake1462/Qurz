@@ -54,7 +54,7 @@ echo "Do You Want To Install Oh My Zsh ?"
 echo "          [1]Yes  [2]No"
 read VAR1
 if [[ $VAR1 -eq $Yes ]] ; then
-        sh -c "$(curl https://raw.githubusercontent.com/anhsirk0/fetch-master-6000/master/install.sh)"
+        sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 elif [[ $VAR1 -eq $No ]] ; then 
         ignore=ignore
 fi
